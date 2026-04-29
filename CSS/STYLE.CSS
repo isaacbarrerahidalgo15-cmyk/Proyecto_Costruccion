@@ -554,4 +554,81 @@
       body { cursor: auto; }
       #cursor, #cursor-ring { display: none; }
     }
- 
+
+    /* modal */
+    .form-submit {
+      padding: 10px 20px;
+      background: yellow;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #111;
+      color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      animation: aparecer 0.4s ease;
+      box-shadow: 0 0 20px rgba(255,255,0,0.3);
+    }
+
+    @keyframes aparecer {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal button {
+      margin-top: 10px;
+      margin-right: 10px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .confirmar {
+      background: #fbff00;
+      color: rgb(7, 3, 3);
+      
+    }
+
+    .cancelar {
+      background: red;
+      color: white;
+    }
+
+    .services-select {
+      margin-bottom: 20px;
+    }
+
+    .service-option {
+      background: #444;
+      padding: 10px;
+      margin: 5px 0;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .service-option:hover {
+      background: #666;
+    }
+
+
+
+
+
+    

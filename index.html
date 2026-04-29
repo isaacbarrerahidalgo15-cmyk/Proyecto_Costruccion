@@ -137,24 +137,69 @@
 
   <div class="gallery-grid">
 
+    <!-- Enchapes -->
     <div class="gallery-item">
-      <img src="img/Enchapes.jpg" class="gallery-img" alt=""style="height: 100%; width: 100%;">
+      <img src="img/Enchapes.jpg" class="gallery-img" style="height: 100%; width: 100%;">
       <div class="gallery-overlay">
         <div class="gallery-caption">Enchapes</div>
       </div>
     </div>
 
+    <!-- Soldadura -->
     <div class="gallery-item">
-      <img src="img/soldadura.jpg" class="gallery-img" alt=""style="height: 60%; width: 100%;">
+      <img src="img/Enchapes.jpg" class="gallery-img" style="height: 60%; width: 100%;">
       <div class="gallery-overlay">
         <div class="gallery-caption">Soldadura</div>
       </div>
     </div>
 
+    <!-- Pintura -->
     <div class="gallery-item">
-      <img src="img/pintura.jpg" class="gallery-img" alt=""style="height: 50%; width: 100%;">
+      <img src="img/Enchapes.jpg" class="gallery-img" style="height: 50%; width: 100%;">
       <div class="gallery-overlay">
         <div class="gallery-caption">Pintura</div>
+      </div>
+    </div>
+
+    <!-- NUEVOS SERVICIOS 🔥 -->
+
+    <!-- Construcción de viviendas -->
+    <div class="gallery-item">
+      <img src="img/Enchapes.jpg" class="gallery-img" style="height: 100%; width: 100%;">
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Construcción de viviendas</div>
+      </div>
+    </div>
+
+    <!-- Estructuras -->
+    <div class="gallery-item">
+      <img src="img/Enchapes.jpg" class="gallery-img" style="height: 100%; width: 100%;">
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Armado de estructuras</div>
+      </div>
+    </div>
+
+    <!-- Remodelaciones -->
+    <div class="gallery-item">
+      <img src="img/Enchapes.jpg" class="gallery-img" style="height: 100%; width: 100%;">
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Remodelaciones</div>
+      </div>
+    </div>
+
+    <!-- Electricidad -->
+    <div class="gallery-item">
+      <img src="img/Enchapes.jpg" class="gallery-img" style="height: 100%; width: 100%;">
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Instalaciones eléctricas</div>
+      </div>
+    </div>
+
+    <!-- Fontanería -->
+    <div class="gallery-item">
+      <img src="img/Enchapes.jpg" class="gallery-img" style="height: 100%; width: 100%;">
+      <div class="gallery-overlay">
+        <div class="gallery-caption">Fontanería</div>
       </div>
     </div>
 
@@ -196,10 +241,93 @@
         <label for="mensaje">Mensaje</label>
         <textarea id="mensaje" placeholder="Cuéntanos sobre tu proyecto"></textarea>
       </div>
-      <button type="submit" class="form-submit">Enviar</button>
+      <button type="button" class="form-submit" id="btnSolicitarServicio">Solicitar un servicio</button>
     </form>
   </div>
 </section>
+
+<!-- Modal para seleccionar el tipo de servicio -->
+<div id="modalSolicitud" class="modal">
+  <div class="modal-content">
+    <h2>Selecciona un tipo de servicio de construcción</h2>
+
+    <div class="services-select">
+      <div class="service-option" onclick="selectService('Construcción de viviendas')">Construcción de viviendas</div>
+      <div class="service-option" onclick="selectService('Reparación de estructuras')">Reparación de estructuras</div>
+      <div class="service-option" onclick="selectService('Renovación de interiores')">Renovación de interiores</div>
+      <div class="service-option" onclick="selectService('Instalación de sistemas eléctricos')">Instalación de sistemas eléctricos</div>
+      <div class="service-option" onclick="selectService('Instalación de fontanería')">Instalación de fontanería</div>
+    </div>
+
+    <div id="selectedService">Selecciona un servicio.</div>
+
+    <button class="confirmar" onclick="openForm()">Confirmar selección</button>
+    <button class="cancelar" onclick="cerrarModal()">Cancelar</button>
+  </div>
+</div>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+// Inicializa EmailJS con la clave pública
+(function(){
+  emailjs.init("vRWCkuvHnOODKrevQ");
+})();
+
+// ABRIR MODAL
+document.getElementById("btnSolicitarServicio").addEventListener("click", function() {
+  document.getElementById("modalSolicitud").style.display = "flex";
+});
+
+// SELECCIONAR SERVICIO
+let selectedService = "";
+
+function selectService(service) {
+  selectedService = service;
+  document.getElementById("selectedService").innerText = "Servicio seleccionado: " + service;
+}
+
+// ABRIR EL FORMULARIO PARA CONFIRMAR
+function openForm() {
+  if (selectedService === "") {
+    alert("Por favor selecciona un servicio primero.");
+    return;
+  }
+
+  // Aquí puedes agregar el servicio al mensaje o realizar cualquier otra acción
+  alert("Servicio seleccionado: " + selectedService);
+
+  // Llamar a la función de enviar el formulario
+  enviarCorreo();
+
+  cerrarModal();
+}
+
+// CERRAR MODAL
+function cerrarModal() {
+  document.getElementById("modalSolicitud").style.display = "none";
+}
+
+// ENVIAR CORREO con EmailJS
+function enviarCorreo() {
+  let params = {
+    from_name: document.getElementById("nombre").value,
+    from_email: document.getElementById("email").value,
+    message: document.getElementById("mensaje").value + "\n\nServicio solicitado: " + selectedService,
+  };
+
+  emailjs.send("service_b0won14", "template_h1uy53g", params)
+    .then(() => {
+      alert("Solicitud enviada correctamente ✅");
+      document.getElementById("contactForm").reset();
+    })
+    .catch((error) => {
+      alert("Error al enviar ❌");
+      console.log(error);
+    });
+}
+</script>
 
 <!-- FOOTER -->
 <footer>
