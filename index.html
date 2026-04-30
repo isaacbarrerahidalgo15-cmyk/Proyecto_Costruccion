@@ -121,7 +121,7 @@
       <p class="service-desc">
         Reparaciones de todo tipo en el hogar: paredes, techos, filtraciones y más.
       </p>
-    </div>
+    </div>  
 
   </div>
 </section>
@@ -261,7 +261,9 @@
 
     <div id="selectedService">Selecciona un servicio.</div>
 
-    <button class="confirmar" onclick="openForm()">Confirmar selección</button>
+    <!-- 👇 SOLO se agregó enviarWhatsApp() aquí -->
+    <button class="confirmar" onclick="openForm(); enviarWhatsApp();">Confirmar selección</button>
+    
     <button class="cancelar" onclick="cerrarModal()">Cancelar</button>
   </div>
 </div>
@@ -295,10 +297,8 @@ function openForm() {
     return;
   }
 
-  // Aquí puedes agregar el servicio al mensaje o realizar cualquier otra acción
   alert("Servicio seleccionado: " + selectedService);
 
-  // Llamar a la función de enviar el formulario
   enviarCorreo();
 
   cerrarModal();
@@ -326,6 +326,17 @@ function enviarCorreo() {
       alert("Error al enviar ❌");
       console.log(error);
     });
+}
+
+// 👇 FUNCIÓN WHATSAPP AGREGADA
+function enviarWhatsApp() {
+  let numero = "50672616008"; // ajusta si es necesario
+
+  let mensaje = "Hola, estoy interesado en el servicio de: " + selectedService;
+
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
 }
 </script>
 
