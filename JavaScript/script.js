@@ -111,3 +111,70 @@
     });
   });
 // contac 
+
+// Inicializa EmailJS con la clave pública
+(function(){
+  emailjs.init("vRWCkuvHnOODKrevQ");
+})();
+
+// ABRIR MODAL
+document.getElementById("btnSolicitarServicio").addEventListener("click", function() {
+  document.getElementById("modalSolicitud").style.display = "flex";
+});
+
+// SELECCIONAR SERVICIO
+let selectedService = "";
+
+function selectService(service) {
+  selectedService = service;
+  document.getElementById("selectedService").innerText = "Servicio seleccionado: " + service;
+}
+
+// ABRIR EL FORMULARIO PARA CONFIRMAR
+function openForm() {
+  if (selectedService === "") {
+    alert("Por favor selecciona un servicio primero.");
+    return;
+  }
+
+  alert("Servicio seleccionado: " + selectedService);
+
+  enviarCorreo();
+
+  cerrarModal();
+}
+
+// CERRAR MODAL
+function cerrarModal() {
+  document.getElementById("modalSolicitud").style.display = "none";
+}
+
+// ENVIAR CORREO con EmailJS
+function enviarCorreo() {
+  let params = {
+    from_name: document.getElementById("nombre").value,
+    from_email: document.getElementById("email").value,
+    message: document.getElementById("mensaje").value + "\n\nServicio solicitado: " + selectedService,
+  };
+
+  emailjs.send("service_b0won14", "template_h1uy53g", params)
+    .then(() => {
+      alert("Solicitud enviada correctamente ✅");
+      document.getElementById("contactForm").reset();
+    })
+    .catch((error) => {
+      alert("Error al enviar ❌");
+      console.log(error);
+    });
+}
+
+// 👇 FUNCIÓN WHATSAPP AGREGADA
+function enviarWhatsApp() {
+  let numero = "50671956867"; // ajusta si es necesario
+
+  let mensaje = "Hola, estoy interesado en el servicio de: " + selectedService;
+
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
+}
