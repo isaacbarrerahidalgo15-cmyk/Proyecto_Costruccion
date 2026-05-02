@@ -40,42 +40,36 @@
       Servicios integrales de construcción, remodelación, soldadura y acabados para tu hogar o negocio.
     </p>
 
-    <a href="#servicio" class="btn-primary">Ver servicios</a>
-    
+    <a href="#servicios" class="btn-primary">Ver servicios</a>
+    <a href="#trabajos" class="btn-primary">Ver trabajos realizados</a> <!-- Botón para redirigir a la sección de trabajos realizados -->
   </div>
 </section>
 
-<!-- TRABAJOS -->
+<!-- NUESTRA SECCIÓN DE TRABAJOS REALIZADOS -->
 <section id="trabajos">
   <h2>Nuestros trabajos realizados</h2>
 
   <div class="trabajos-container">
-
-    <!-- MUEBLES -->
-    <div class="trabajo-card">
-      <img src="img/mueble1.jpg" alt="Trabajo en muebles">
+    <div class="trabajo-item">
+      <img src="muebles.jpg" alt="Trabajo en muebles">
       <h3>Muebles</h3>
       <p>Fabricación y restauración de muebles a medida.</p>
-      <button onclick="verMas('muebles')">Ver más imágenes</button>
+      <a href="muebles.html" class="btn-primary">Ver más imágenes</a> <!-- Redirige a la página muebles.html -->
     </div>
 
-    <!-- CONSTRUCCIÓN -->
-    <div class="trabajo-card">
-      <img src="img/construccion1.jpg" alt="Construcción">
+    <div class="trabajo-item">
+      <img src="construccion.jpg" alt="Trabajo en construcción">
       <h3>Construcción</h3>
       <p>Proyectos de construcción y remodelación.</p>
-      <button onclick="verMas('construccion')">Ver más imágenes</button>
+      <a href="construccion.html" class="btn-primary">Ver más imágenes</a> <!-- Redirige a la página construccion.html -->
     </div>
-
   </div>
 </section>
-<div id="galeriaModal" class="modal-galeria">
-  <span class="cerrar" onclick="cerrarGaleria()">&times;</span>
 
-  <div class="galeria-contenido" id="galeriaContenido">
-    <!-- aquí se cargan imágenes -->
-  </div>
-</div>
+<!-- OTRO CÓDIGO QUE YA TIENES EN LA PÁGINA, COMO PIE DE PÁGINA O CONTACTO -->
+<footer>
+  <p>&copy; 2026 Reparatodo OHC. Todos los derechos reservados.</p>
+</footer>
 
 <!-- SERVICIOS -->
 <section id="servicios">
