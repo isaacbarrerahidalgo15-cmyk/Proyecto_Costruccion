@@ -808,3 +808,54 @@ html {
   width: 250px;
   border-radius: 10px;
 }
+
+#nosotros {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  background: #121212;
+  color: #fff;
+}
+
+#nosotros .about-text {
+  max-width: 600px;
+  margin-right: 30px;
+}
+
+#nosotros .section-title {
+  font-size: 2rem;
+  color: #FFD700; /* Gold for highlighting */
+}
+
+#nosotros .about-body {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+.qr-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.qr-section h3 {
+  font-size: 1.5rem;
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+.qr-image {
+  width: 180px;
+  height: 180px;
+  margin-top: 20px;
+}
+
+.qr-link {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.qr-link:hover {
+  text-decoration: underline;
+}
