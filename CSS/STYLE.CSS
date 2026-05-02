@@ -628,7 +628,91 @@
     }
 
 
+/* Nuestros trabajos realizados */
 
+#trabajos {
+  padding: 60px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
 
+#trabajos h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
 
-    
+.trabajos-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.trabajo-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  width: 300px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.trabajo-card:hover {
+  transform: scale(1.05);
+}
+
+.trabajo-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.trabajo-card h3 {
+  margin: 15px 0;
+  color: #e5ff00;
+}
+
+.trabajo-card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #e5ff00;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.modal-galeria {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+
+.galeria-contenido {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.galeria-contenido img {
+  width: 250px;
+  border-radius: 10px;
+}
+
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}

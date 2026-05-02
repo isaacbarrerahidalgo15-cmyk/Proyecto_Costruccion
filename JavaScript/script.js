@@ -178,3 +178,51 @@ function enviarWhatsApp() {
 
   window.open(url, "_blank");
 }
+
+// 👇 -Nuestros trabajos realizados
+
+function verMas(tipo) {
+  if (tipo === "muebles") {
+    window.location.href = "muebles.html"; // Redirige a muebles.html
+  } else if (tipo === "construccion") {
+    window.location.href = "construccion.html"; // Redirige a construccion.html
+  }
+}
+
+
+function verMas(tipo) {
+  if (tipo === "muebles") {
+    alert("Aquí puedes mostrar más imágenes de muebles 🔥");
+  } else if (tipo === "construccion") {
+    alert("Aquí puedes mostrar más imágenes de construcción 🔥");
+  }
+}
+
+function verMas(tipo) {
+  const galeria = document.getElementById("galeriaModal");
+  const contenido = document.getElementById("galeriaContenido");
+
+  contenido.innerHTML = "";
+
+  if (tipo === "muebles") {
+    contenido.innerHTML = `
+      <img src="img/mueble1.jpg">
+      <img src="img/mueble2.jpg">
+      <img src="img/mueble3.jpg">
+    `;
+  }
+
+  if (tipo === "construccion") {
+    contenido.innerHTML = `
+      <img src="img/construccion1.jpg">
+      <img src="img/construccion2.jpg">
+      <img src="img/construccion3.jpg">
+    `;
+  }
+
+  galeria.style.display = "block";
+}
+
+function cerrarGaleria() {
+  document.getElementById("galeriaModal").style.display = "none";
+}

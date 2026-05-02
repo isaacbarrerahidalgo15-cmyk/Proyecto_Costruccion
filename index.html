@@ -41,8 +41,41 @@
     </p>
 
     <a href="#servicios" class="btn-primary">Ver servicios</a>
+    
   </div>
 </section>
+
+<!-- TRABAJOS -->
+<section id="trabajos">
+  <h2>Nuestros trabajos realizados</h2>
+
+  <div class="trabajos-container">
+
+    <!-- MUEBLES -->
+    <div class="trabajo-card">
+      <img src="img/mueble1.jpg" alt="Trabajo en muebles">
+      <h3>Muebles</h3>
+      <p>Fabricación y restauración de muebles a medida.</p>
+      <button onclick="verMas('muebles')">Ver más imágenes</button>
+    </div>
+
+    <!-- CONSTRUCCIÓN -->
+    <div class="trabajo-card">
+      <img src="img/construccion1.jpg" alt="Construcción">
+      <h3>Construcción</h3>
+      <p>Proyectos de construcción y remodelación.</p>
+      <button onclick="verMas('construccion')">Ver más imágenes</button>
+    </div>
+
+  </div>
+</section>
+<div id="galeriaModal" class="modal-galeria">
+  <span class="cerrar" onclick="cerrarGaleria()">&times;</span>
+
+  <div class="galeria-contenido" id="galeriaContenido">
+    <!-- aquí se cargan imágenes -->
+  </div>
+</div>
 
 <!-- SERVICIOS -->
 <section id="servicios">
@@ -299,3 +332,7 @@
 
 </body>
 </html>
+
+<!--Nuestros trabajos realizados -->
+
+
