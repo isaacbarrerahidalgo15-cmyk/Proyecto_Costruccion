@@ -273,7 +273,7 @@ function toggleGaleria(tipo) {
   // CAMBIAR CONTENIDO
   if (tipo === "muebles") {
     contenedor.innerHTML = `
-      <img src="img/mueble1.jpg">
+      <img src="img/servicio_remodelaciones.jpg">
       <img src="img/mueble2.jpg">
       <img src="img/mueble3.jpg">
       <img src="img/mueble4.jpg">
