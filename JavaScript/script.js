@@ -226,3 +226,74 @@ function verMas(tipo) {
 function cerrarGaleria() {
   document.getElementById("galeriaModal").style.display = "none";
 }
+
+
+//nuevo
+function mostrarGaleria(tipo) {
+  const contenedor = document.getElementById("contenidoGaleria");
+
+  if (tipo === "muebles") {
+    contenedor.innerHTML = `
+      <img src="img/mueble1.jpg">
+      <img src="img/mueble2.jpg">
+      <img src="img/mueble3.jpg">
+      <img src="img/mueble4.jpg">
+    `;
+  }
+
+  if (tipo === "construccion") {
+    contenedor.innerHTML = `
+      <img src="img/construccion1.jpg">
+      <img src="img/construccion2.jpg">
+      <img src="img/construccion3.jpg">
+      <img src="img/construccion4.jpg">
+    `;
+  }
+
+  // activar animación
+  setTimeout(() => {
+    contenedor.classList.add("activo");
+  }, 50);
+}
+
+
+let abierta = false;
+let tipoActual = "";
+
+function toggleGaleria(tipo) {
+  const contenedor = document.getElementById("contenidoGaleria");
+
+  // SI YA ESTÁ ABIERTA Y LE DAN AL MISMO → CERRAR
+  if (abierta && tipo === tipoActual) {
+    contenedor.classList.remove("activo");
+    abierta = false;
+    return;
+  }
+
+  // CAMBIAR CONTENIDO
+  if (tipo === "muebles") {
+    contenedor.innerHTML = `
+      <img src="img/mueble1.jpg">
+      <img src="img/mueble2.jpg">
+      <img src="img/mueble3.jpg">
+      <img src="img/mueble4.jpg">
+    `;
+  }
+
+  if (tipo === "construccion") {
+    contenedor.innerHTML = `
+      <img src="img/construccion1.jpg">
+      <img src="img/construccion2.jpg">
+      <img src="img/construccion3.jpg">
+      <img src="img/construccion4.jpg">
+    `;
+  }
+
+  // MOSTRAR
+  setTimeout(() => {
+    contenedor.classList.add("activo");
+  }, 50);
+
+  abierta = true;
+  tipoActual = tipo;
+}

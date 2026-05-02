@@ -53,29 +53,27 @@
 
     <!-- MUEBLES -->
     <div class="trabajo-card">
-      <img src="img/mueble1.jpg" alt="Trabajo en muebles">
+      <img src="img/mueble1.jpg">
       <h3>Muebles</h3>
-      <p>Fabricación y restauración de muebles a medida.</p>
-      <button onclick="verMas('muebles')">Ver más imágenes</button>
+      <p>Fabricación y restauración de muebles.</p>
+      <button onclick="toggleGaleria('muebles')">Ver más imágenes</button>
     </div>
 
     <!-- CONSTRUCCIÓN -->
     <div class="trabajo-card">
-      <img src="img/construccion1.jpg" alt="Construcción">
+      <img src="img/construccion1.jpg">
       <h3>Construcción</h3>
       <p>Proyectos de construcción y remodelación.</p>
-      <button onclick="verMas('construccion')">Ver más imágenes</button>
+      <button onclick="toggleGaleria('construccion')">Ver más imágenes</button>
     </div>
 
   </div>
-</section>
-<div id="galeriaModal" class="modal-galeria">
-  <span class="cerrar" onclick="cerrarGaleria()">&times;</span>
 
-  <div class="galeria-contenido" id="galeriaContenido">
-    <!-- aquí se cargan imágenes -->
+  <!-- GALERÍA -->
+  <div class="galeria">
+    <div id="contenidoGaleria" class="galeria-contenido"></div>
   </div>
-</div>
+</section>
 
 <!-- SERVICIOS -->
 <section id="servicios">
