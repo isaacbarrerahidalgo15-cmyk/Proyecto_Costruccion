@@ -123,7 +123,7 @@ document.getElementById("btnSolicitarServicio").addEventListener("click", functi
 });
 
 // SELECCIONAR SERVICIO
-let selectedService = "";
+let selectedServices = [];
 
 function selectService(service) {
   selectedService = service;
@@ -170,16 +170,28 @@ function enviarCorreo() {
 
 // 👇 FUNCIÓN WHATSAPP AGREGADA
 function enviarWhatsApp() {
-  let numero = "50671956867"; // ajusta si es necesario
+  try {
+    var numero = "50671956867"; // tu número
 
-  let mensaje = "Hola, estoy interesado en el servicio de: " + selectedService;
+    // evita que rompa si no existe la variable
+    if (typeof selectedService === "undefined" || !selectedService) {
+      alert("Primero selecciona un servicio");
+      return;
+    }
 
-  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+    var mensaje = "Hola, estoy interesado en el servicio de: " + selectedService;
 
-  window.open(url, "_blank");
+    var url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+
+  } catch (error) {
+    console.error("Error en WhatsApp:", error);
+    alert("Hubo un error al abrir WhatsApp");
+  }
 }
 
-// 👇 -Nuestros trabajos realizados
+// 👇 -Nuestros trabajos realizados 
 
 function verMas(tipo) {
   if (tipo === "muebles") {
@@ -296,4 +308,54 @@ function toggleGaleria(tipo) {
 
   abierta = true;
   tipoActual = tipo;
+}
+
+// =======================
+// MODAL ARQUITECTURA
+// =======================
+
+let servicioArquitectura = "";
+
+function abrirModalArquitectura() {
+  console.log("click arquitectura"); // <-- para probar
+  document.getElementById("modalArquitectura").style.display = "flex";
+}
+
+function cerrarModalArquitectura() {
+  document.getElementById("modalArquitectura").style.display = "none";
+}
+
+function selectArquitectura(servicio){
+
+  // si ya está → lo quita
+  if (selectedServices.includes(servicio)) {
+    selectedServices = selectedServices.filter(s => s !== servicio);
+
+    event.target.classList.remove("activo");
+  } else {
+    // si no está → lo agrega
+    selectedServices.push(servicio);
+
+    event.target.classList.add("activo");
+  }
+
+  // mostrar selección
+  document.getElementById("arquitecturaSeleccionada").innerText =
+    "Servicios: " + selectedServices.join(", ");
+}
+function confirmarArquitectura(){
+
+  // 🔴 VALIDACIÓN AQUÍ
+  if (selectedServices.length === 0) {
+    alert("Selecciona al menos un servicio");
+    return;
+  }
+
+  // guardar todos los servicios
+  selectedService = "Arquitectura - " + selectedServices.join(", ");
+
+  cerrarModalArquitectura();
+
+  // abrir el siguiente paso (modal o WhatsApp)
+  document.getElementById("modalSolicitud").style.display = "flex";
 }

@@ -53,7 +53,7 @@
 
     <!-- MUEBLES -->
     <div class="trabajo-card">
-      <img src="img/mueble1.jpg">
+      <img src="img/mueble1.jpg"  >
       <h3>Muebles</h3>
       <p>Fabricación y restauración de muebles.</p>
       <button onclick="toggleGaleria('muebles')">Ver más imágenes</button>
@@ -81,7 +81,17 @@
   <h2 class="section-title">Servicios especializados en construcción y remodelación</h2>
 
   <div class="services-grid">
+    <!-- ARQUITECTURA -->
+<div class="service-card" onclick="abrirModalArquitectura()">
+  <img src="img/arquitectura.jpg" style="height:200px; width:100%; object-fit:cover;">
+  <div class="service-title">Arquitectura</div>
+  <p class="service-desc">
+    Diseño, planos, construcción y permisos.
+  </p>
+</div>
 
+
+    
     <!-- 01 -->
     <div class="service-card">
       <img src="img/Construcción_de_viviendas.jpg" style="height:200px; width:100%; object-fit:cover;">
@@ -156,6 +166,8 @@
 
   </div>
 </section>
+
+
 <!-- GALERÍA -->
 <section id="galeria">
   <div class="gallery-header">
@@ -240,7 +252,6 @@
 <!-- NOSOTROS -->
 <section id="nosotros">
   <div class="about-visual"></div>
-
   <div class="about-text">
     <h2 class="section-title">Construimos resultados sólidos y duraderos</h2>
     <p class="about-body">
@@ -334,7 +345,60 @@
 
 <script src="JavaScript/script.js"></script>
 
-</body>
+<!-- MODAL ARQUITECTURA -->
+<div id="modalArquitectura" class="modal">
+  <div class="modal-content">
+
+    <h2>Servicios de Arquitectura</h2>
+
+    <div class="services-select">
+
+      <div class="service-option" onclick="selectArquitectura('Consultorías especializadas')">
+        Consultorías especializadas
+      </div>
+
+      <div class="service-option" onclick="selectArquitectura('Estudios preliminares')">
+        Estudios preliminares
+      </div>
+
+      <div class="service-option" onclick="selectArquitectura('Anteproyecto')">
+        Anteproyecto
+      </div>
+
+      <div class="service-option" onclick="selectArquitectura('Planos arquitectónicos')">
+        Planos arquitectónicos
+      </div>
+
+      <div class="service-option" onclick="selectArquitectura('Planos civiles')">
+        Planos civiles
+      </div>
+
+      <div class="service-option" onclick="selectArquitectura('Planos estructurales')">
+        Planos estructurales
+      </div>
+
+      <div class="service-option" onclick="selectArquitectura('Planos electromecánicos')">
+        Planos electromecánicos
+      </div>
+
+      <div class="service-option" onclick="selectArquitectura('Ejecución de obra')">
+        Ejecución de obra
+      </div>
+
+      <div class="service-option" onclick="selectArquitectura('Permisos y tramitología')">
+        Permisos y tramitología
+      </div>
+
+    </div>
+
+    <div id="arquitecturaSeleccionada">Selecciona un servicio</div>
+
+    <button class="confirmar" onclick="confirmarArquitectura()">Continuar</button>
+    <button class="cancelar" onclick="cerrarModalArquitectura()">Cancelar</button>
+
+  </div>
+</div>
+
 </html>
 
 <!--Nuestros trabajos realizados -->
