@@ -1041,3 +1041,10 @@ html {
   min-height:100px;
   resize:none;
 }
+
+.error-text {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 3px;
+  display: block;
+}

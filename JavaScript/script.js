@@ -341,62 +341,69 @@ function cerrarModalArquitectura() {
   document.getElementById("modalArquitectura").style.display = "none";
 }
 
-function selectArquitectura(servicio){
-
-  // si ya está → lo quita
+function selectArquitectura(servicio) {
   if (selectedServices.includes(servicio)) {
     selectedServices = selectedServices.filter(s => s !== servicio);
-
     event.target.classList.remove("activo");
   } else {
-    // si no está → lo agrega
     selectedServices.push(servicio);
-
     event.target.classList.add("activo");
   }
 
-  // mostrar selección
   document.getElementById("arquitecturaSeleccionada").innerText =
-    "Servicios: " + selectedServices.join(", ");
+    selectedServices.length > 0 ? "Servicios: " + selectedServices.join(", ") : "Selecciona un servicio";
+
+  // Limpiar error si selecciona un servicio
+  document.getElementById("errorServicios").innerText = "";
 }
-function confirmarArquitectura(){
+
+function confirmarArquitectura() {
+  // Limpiar errores anteriores
+  document.getElementById("errorNombre").innerText = "";
+  document.getElementById("errorCorreo").innerText = "";
+  document.getElementById("errorServicios").innerText = "";
+
+  let nombre = document.getElementById("nombreArquitectura").value.trim();
+  let correo = document.getElementById("correoArquitectura").value.trim();
+  let mensajeCliente = document.getElementById("mensajeArquitectura").value.trim();
+
+  let tieneError = false;
 
   if (selectedServices.length === 0) {
-    alert("Selecciona al menos un servicio");
-    return;
+    document.getElementById("errorServicios").innerText = "Selecciona al menos un servicio";
+    tieneError = true;
   }
 
-  let nombre =
-    document.getElementById("nombreArquitectura").value;
-
-  let correo =
-    document.getElementById("correoArquitectura").value;
-
-  let mensajeCliente =
-    document.getElementById("mensajeArquitectura").value;
-
-  if(nombre === "" || correo === ""){
-    alert("Completa nombre y correo");
-    return;
+  if (nombre === "") {
+    document.getElementById("errorNombre").innerText = "Por favor ingresa tu nombre";
+    tieneError = true;
   }
 
+  if (correo === "") {
+    document.getElementById("errorCorreo").innerText = "Por favor ingresa tu correo";
+    tieneError = true;
+  }
+
+  // Si hay algún error, salimos y no se envía WhatsApp
+  if (tieneError) return;
+
+  // Guardar todos los servicios seleccionados
+  selectedService = "Arquitectura - " + selectedServices.join(", ");
+
+  // Construir mensaje de WhatsApp (tu código original intacto)
   let numero = "50671956867";
-
-  let mensaje =
-`Hola, mi nombre es ${nombre}
+  let mensaje = `Hola, mi nombre es ${nombre}
 
 Correo: ${correo}
 
 Estoy interesado en:
 
-Arquitectura - ${selectedServices.join(", ")}
+${selectedService}
 
 Detalles:
 ${mensajeCliente}`;
 
-  let url =
-"https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
-
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
   window.open(url, "_blank");
 
   cerrarModalArquitectura();
