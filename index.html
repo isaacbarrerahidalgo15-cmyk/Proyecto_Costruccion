@@ -363,6 +363,8 @@
     <div id="selectedService">Selecciona un servicio.</div>
 
     <!-- 👇 SOLO se agregó enviarWhatsApp() aquí -->
+
+    
     <button class="confirmar" onclick="openForm(); enviarWhatsApp();">Confirmar selección</button>
     
     <button class="cancelar" onclick="cerrarModal()">Cancelar</button>
@@ -445,6 +447,22 @@
     </div>
 
     <div id="arquitecturaSeleccionada">Selecciona un servicio</div>
+
+    <div class="arquitectura-form">
+
+  <input type="text"
+  id="nombreArquitectura"
+  placeholder="Tu nombre">
+
+  <input type="email"
+  id="correoArquitectura"
+  placeholder="Tu correo">
+
+  <textarea
+  id="mensajeArquitectura"
+  placeholder="Cuéntanos sobre tu proyecto"></textarea>
+
+</div>
 
     <button class="confirmar" onclick="confirmarArquitectura()">Continuar</button>
     <button class="cancelar" onclick="cerrarModalArquitectura()">Cancelar</button>

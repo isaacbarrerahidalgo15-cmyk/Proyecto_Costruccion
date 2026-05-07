@@ -171,15 +171,32 @@ function enviarCorreo() {
 // 👇 FUNCIÓN WHATSAPP AGREGADA
 function enviarWhatsApp() {
   try {
-    var numero = "50671956867"; // tu número
 
-    // evita que rompa si no existe la variable
+    var numero = "50671956867";
+
+    var nombre = document.getElementById("nombre").value;
+    var correo = document.getElementById("email").value;
+    var mensajeCliente = document.getElementById("mensaje").value;
+
     if (typeof selectedService === "undefined" || !selectedService) {
       alert("Primero selecciona un servicio");
       return;
     }
 
-    var mensaje = "Hola, estoy interesado en el servicio de: " + selectedService;
+    if (nombre === "" || correo === "") {
+      alert("Completa nombre y correo");
+      return;
+    }
+
+    var mensaje = `Hola, mi nombre es ${nombre}
+
+Correo: ${correo}
+
+Estoy interesado en el servicio de:
+${selectedService}
+
+Detalles del proyecto:
+${mensajeCliente}`;
 
     var url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
 
@@ -344,17 +361,43 @@ function selectArquitectura(servicio){
 }
 function confirmarArquitectura(){
 
-  // 🔴 VALIDACIÓN AQUÍ
   if (selectedServices.length === 0) {
     alert("Selecciona al menos un servicio");
     return;
   }
 
-  // guardar todos los servicios
-  selectedService = "Arquitectura - " + selectedServices.join(", ");
+  let nombre =
+    document.getElementById("nombreArquitectura").value;
+
+  let correo =
+    document.getElementById("correoArquitectura").value;
+
+  let mensajeCliente =
+    document.getElementById("mensajeArquitectura").value;
+
+  if(nombre === "" || correo === ""){
+    alert("Completa nombre y correo");
+    return;
+  }
+
+  let numero = "50671956867";
+
+  let mensaje =
+`Hola, mi nombre es ${nombre}
+
+Correo: ${correo}
+
+Estoy interesado en:
+
+Arquitectura - ${selectedServices.join(", ")}
+
+Detalles:
+${mensajeCliente}`;
+
+  let url =
+"https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
 
   cerrarModalArquitectura();
-
-  // abrir el siguiente paso (modal o WhatsApp)
-  document.getElementById("modalSolicitud").style.display = "flex";
 }
