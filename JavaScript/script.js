@@ -286,7 +286,7 @@ function toggleGaleria(tipo) {
     if (tipo === "muebles") {
   contenedor.innerHTML = `
     <img src="img/servicio_remodelaciones.jpg" class="gallery-img">
-    <img src="img/mueble2.jpg" class="gallery-img"style="height: 50%; width: 50%;">
+    <img src="img/mueble2.jpg" class="gallery-img"style="height: 40%; width: 50%;">
     <img src="img/mueble3.jpg" class="gallery-img"style="height: 50%; width: 50%;">
     <img src="img/mueble4.jpg" class="gallery-img"style="height: 50%; width: 50%;">
   `;
