@@ -226,7 +226,7 @@ function verMas(tipo) {
 
   if (tipo === "construccion") {
     contenido.innerHTML = `
-      <img src="img/construccion1.jpg">
+      <img src="img/Construcción-viviendas.jpg">
       <img src="img/construccion2.jpg">
       <img src="img/construccion3.jpg">
     `;
@@ -283,24 +283,23 @@ function toggleGaleria(tipo) {
   }
 
   // CAMBIAR CONTENIDO
-  if (tipo === "muebles") {
-    contenedor.innerHTML = `
-      <img src="img/servicio_remodelaciones.jpg">
-      <img src="img/mueble2.jpg">
-      <img src="img/mueble3.jpg">
-      <img src="img/mueble4.jpg">
-    `;
-  }
+    if (tipo === "muebles") {
+  contenedor.innerHTML = `
+    <img src="img/servicio_remodelaciones.jpg" class="gallery-img">
+    <img src="img/mueble2.jpg" class="gallery-img"style="height: 50%; width: 50%;">
+    <img src="img/mueble3.jpg" class="gallery-img"style="height: 50%; width: 50%;">
+    <img src="img/mueble4.jpg" class="gallery-img"style="height: 50%; width: 50%;">
+  `;
+}
 
-  if (tipo === "construccion") {
-    contenedor.innerHTML = `
-      <img src="img/construccion1.jpg">
-      <img src="img/construccion2.jpg">
-      <img src="img/construccion3.jpg">
-      <img src="img/construccion4.jpg">
-    `;
-  }
-
+if (tipo === "construccion") {
+  contenedor.innerHTML = `
+    <img src="img/construccion-viviendas.jpg" class="gallery-img"style="height: 10%; width: 10%;">
+    <img src="img/remodelacion-bano.jpg" class="gallery-img"style="height:10%; width: 10%;">
+    <img src="img/construccion3.jpg" class="gallery-img"style="height: 50%; width: 50%;">
+    <img src="img/construccion4.jpg" class="gallery-img"style="height: 50%; width: 50%;">
+  `;
+}
   // MOSTRAR
   setTimeout(() => {
     contenedor.classList.add("activo");
