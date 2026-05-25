@@ -971,6 +971,7 @@ html {
 .qr-link:hover {
   text-decoration: underline;
 }
+<<<<<<< Updated upstream
 /*
 /* CENTRAR MODAL BIEN */
 #modalArquitectura {
@@ -1047,4 +1048,32 @@ html {
   font-size: 0.85em;
   margin-top: 3px;
   display: block;
+=======
+
+/* ARQUITECTURA DESTACADA */
+.arquitectura-card {
+  border: 1px solid rgba(200,255,0,0.2);
+  transition: all 0.3s ease;
+}
+
+/* EFECTO FUERTE */
+.arquitectura-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  background: #1c1c1c;
+  box-shadow: 0 20px 40px rgba(200,255,0,0.2);
+}
+
+/* LISTA MÁS VISIBLE */
+.arquitectura-list li {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* BULLETS MÁS LLAMATIVOS */
+.arquitectura-list li::before {
+  content: "▸";
+  color: var(--accent);
+  margin-right: 10px;
+  font-weight: bold;
+>>>>>>> Stashed changes
 }
