@@ -325,7 +325,6 @@ if (tipo === "construccion") {
   abierta = true;
   tipoActual = tipo;
 }
-<<<<<<< Updated upstream
 
 // =======================
 // MODAL ARQUITECTURA
@@ -409,5 +408,3 @@ ${mensajeCliente}`;
 
   cerrarModalArquitectura();
 }
-=======
->>>>>>> Stashed changes
