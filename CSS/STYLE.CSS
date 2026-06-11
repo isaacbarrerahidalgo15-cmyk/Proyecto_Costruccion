@@ -822,12 +822,20 @@
   opacity: 1;
 }
 
+/* FORZAR MISMO TAMAÑO A TODAS LAS IMÁGENES DE LA GALERÍA */
+
 .galeria-contenido img{
-  width: 300px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: .3s;
+    width: 300px !important;
+    height: 220px !important;
+    object-fit: cover !important;
+
+    flex: 0 0 300px !important;
+
+    display: block !important;
+    border-radius: 10px;
+
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .galeria-contenido img:hover{
