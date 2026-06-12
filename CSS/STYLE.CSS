@@ -1302,3 +1302,56 @@ html{
     0%,85%{opacity:0;}
     90%,100%{opacity:1;}
 }
+
+.hero-worker{
+    position:absolute;
+    right:80px;
+    bottom:0;
+}
+
+.hero-worker img{
+    height:600px;
+    opacity:.9;
+}
+
+.hammer{
+    position:absolute;
+    right:300px;
+    top:120px;
+    font-size:50px;
+    animation: martillar 2s infinite ease-in-out;
+}
+
+@keyframes martillar{
+
+    0%{
+        transform:translate(0,0) rotate(0deg);
+    }
+
+    25%{
+        transform:translate(-120px,80px) rotate(-45deg);
+    }
+
+    50%{
+        transform:translate(0,150px) rotate(45deg);
+    }
+
+    75%{
+        transform:translate(120px,80px) rotate(-45deg);
+    }
+
+    100%{
+        transform:translate(0,0) rotate(0deg);
+    }
+}
+
+.hero-worker img{
+    height:500px;
+    animation: flotar 4s ease-in-out infinite;
+}
+
+@keyframes flotar{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
